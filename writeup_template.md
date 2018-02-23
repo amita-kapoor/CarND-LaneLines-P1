@@ -26,11 +26,11 @@ The goals / steps of this project are the following:
 My pipeline consisted of 5 steps. 
 Step 1: Initially I did exactly as in the lecture. Converted the image to grayscale
 
-![Gray-Scale Image](gray-solidWhiteRight.jpg)
+![Gray-Scale Image][test_images_output/gray-solidWhiteRight.jpg]
 
 Step 2: Passed the grayscale image through a Gaussian filter to remove noise.
 Step 3: The filtered Image is then presented to Canny Edge detector.
-![Edge Detectiom](canny-solidWhiteRight.jpg)
+![Edge Detectiom] [canny-solidWhiteRight.jpg]
 
 Step 4: Next I identified a region of interest in the image. Masked it. 
 Step 5: And lastly applied Hough Transform to find the lines only in the region of interest. 
@@ -42,9 +42,9 @@ But the lines were broken and too many. So I worked on the draw_lines2 function.
 
 * Next from the x1,y1,x2,y2 points of each line detected, I found the average slope and average center point. Using the simple equation of line, used this average to determine the top and bottom x points. (The top and bottom y-points were determined from image shape.)
 
-* To ensure that the lines with higher votes are thicker, I also defined a quantity weight proportional to the number of points in the particular line. This weight was used to determine the thickness of the line drawn.
+* To ensure that only a single line is finally drawn I averaged all the left and right lines detected by Hough and and used cv2.line function to draw the average line..
 
-![Final Result](lined-solidWhiteRight.jpg)
+![Final Result] [lined-solidWhiteRight.jpg]
 
 
 
